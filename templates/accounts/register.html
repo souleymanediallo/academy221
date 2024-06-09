@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <section id="register" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h4>Inscription</h4>
+                        </div>
+                        <div class="card-body">
+                            <form method="POST">
+                                {% csrf_token %}
+                                <div class="form-group mt-3">
+                                    <label for="first_name" class="form-label">Prénom</label>
+                                    <input type="text" id="first_name" name="first_name" class="form-control" required>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label for="last_name" class="form-label">Nom</label>
+                                    <input type="text" id="last_name" name="last_name" class="form-control" required>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label for="first_name" class="form-label">Email</label>
+                                    <input type="email" name="email" class="form-control" id="first_name" name="first_name" required>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label for="password1" class="form-label">Mot de passe</label>
+                                    <input type="password" id="password1" name="password1" class="form-control" required>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label for="password2" class="form-label">Confirmer mot de passe</label>
+                                    <input type="password" id="password2" name="password2" class="form-control" required>
+                                </div>
+                                <div class="form-group mt-3">
+                                <input type="submit" value="Inscription" class="btn btn-secondary btn-block">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer">
+                            <span class="small text-dark">Vous avez déjà un compte ? <a class="text-dark" href="{% url 'login' %}">Connexion</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+    <section id="showcase-inner" class="py-5 text-white">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <h1 class="display-4">Mon Compte : {{ user.first_name }}</h1>
+                    <p class="lead">ACADEMY221</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    {% include 'partials/aside_admin.html' %}
+    <!-- end Breadcrumb -->
+
+    <section id="dashboard" class="py-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h1 class="h3">Modifier mon Profil : <a href="{% url 'dashboard' %}">Retour à mon Profil</a></h1>
+                        </div>
+                        <div class="card-body">
+                            <form method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    {{ u_form|crispy }}
+                                    {{ p_form|crispy }}
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Mettre à jour</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

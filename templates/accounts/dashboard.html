@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <section class="py-5 bg-dark text-light">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <h1 class="display-4 fw-bold text-uppercase">Mon compte</h1>
+                    <p class="lead">{{ user.first_name }} | ACADEMY221</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="dashboard" class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <h1 class="h3">Dashboard</h1>
+                        </div>
+                        <div class="card-body p-0">
+                            <ul class="list-group list-group-flush">
+                              <li class="list-group-item"><a href="">Mon Compte</a></li>
+                              <li class="list-group-item"><a href="">Mes Favoris</a></li>
+                              <li class="list-group-item"><a href="">Modifier mon Profil</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="card">
+                        <div class="card-header">
+                            <h1 class="h3">Mon Profil</h1>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="{{ user.profile.image.url }}" width="100" height="100"/>
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Présentation </h3>
+                                    <p>{{ user.profile.description }}</p>
+                                    <hr>
+                                    <h6>Dernière connexion le {{ user.last_login|date }}</h6>
+                                    <hr>
+                                    <h6>Membre depuis le {{ user.date_joined |date }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
