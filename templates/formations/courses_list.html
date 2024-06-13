@@ -11,23 +11,48 @@
             </div>
         </div>
     </section>
-
-    <section id="dashboard" class="py-4">
-        <div class="container">
-            <div class="row">
-                {% for course in courses %}
-                <div class="col-md-6 mb-3">
-                    <div class="card" onclick="location.href='{% url 'course_detail' slug=course.slug %}'" style="cursor: pointer;">
-                        <div class="card-header">
-                            <h1 class="h3">{{ course.title }}</h1>
-                        </div>
-                        <div class="card-body">
-                            <p>{{ course.description }}</p>
+    <section class="py-8 bg-light">
+<div class="container">
+    <div class="row mb-8 justify-content-center">
+        <div class="col-lg-8 col-md-12 col-12 text-center">
+            <!-- caption -->
+            <span class="text-primary mb-3 d-block text-uppercase fw-semibold ls-xl">Course Description</span>
+            <h2 class="mb-2 display-4 fw-bold">What will you learn?</h2>
+            <p class="lead">
+                Vanilla JS is a fast, lightweight, cross-platformframework for building incredible, powerful JavaScript applications.
+            </p>
+        </div>
+    </div>
+    <!-- row -->
+    <div class="row">
+        {% for course in courses %}
+        <div class="col-lg-6 col-md-12 col-12">
+            <!-- Features -->
+            <div class="card mb-4" onclick="location.href='{% url 'course_detail' slug=course.slug %}'" style="cursor: pointer;">
+                <!-- Card body -->
+                <div class="card-body p-6">
+                    <div class="d-md-flex mb-4">
+                        <!-- Content -->
+                        <div class="ms-md-4">
+                            <h2 class="fw-bold mb-1">
+                                {{ course.title }}
+                            </h2>
+                            <p class="text-uppercase fs-6 fw-semibold mb-0">
+                                <span class="ms-3-"> Catégorie : {{ course.category }}</span>
+                                <span class="ms-3">Niveau : {{ course.get_level_display }}</span>
+                            </p>
                         </div>
                     </div>
+                    <p class="mb-4 fs-4">{{ course.description|truncatechars:120 }}</p>
+
+                    <a href="#" class="btn-link" data-bs-toggle="modal" data-bs-target="#courseModal">
+                        Voir le contenu du cours <i class="bi bi-arrow-right"></i>
+                    </a>
                 </div>
-                {% endfor %}
             </div>
         </div>
-    </section>
+        {% endfor %}
+    </div>
+</div>
+</section>
 {% endblock %}

@@ -20,3 +20,19 @@ class CourseDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['sections'] = Section.objects.filter(course=self.object)
         return context
+
+
+class LessonDetailView(DetailView):
+    model = Lesson
+    template_name = 'formations/lesson_detail.html'
+    context_object_name = 'lesson'
+
+    def get_object(self):
+        # Override get_object to make sure the correct lesson is retrieved based on the course and lesson slug
+        return Lesson.objects.get(slug=self.kwargs['slug'], section__course__slug=self.kwargs['course_slug'])
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        course = self.object.section.course
+        context['sections'] = Section.objects.filter(course=course)
+        return context

@@ -1,4 +1,7 @@
-a {
-    color:#343a40;
-    text-decoration:none;
+.icon-xxl {
+    width: 64px;  /* Ou toute autre dimension */
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
