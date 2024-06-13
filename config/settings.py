@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     "accounts.apps.AccountsConfig",
     "crispy_forms",
     "crispy_bootstrap5",
+    "formations.apps.FormationsConfig",
 ]
 
 MIDDLEWARE = [

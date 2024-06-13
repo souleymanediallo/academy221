@@ -31,6 +31,9 @@ class Category(SeoModel, models.Model):
             self.slug = slugify(self.title)
         super(Category, self).save(*args, **kwargs)
 
+    class Meta:
+        verbose_name_plural = 'Categories'
+
 
 class Course(SeoModel, models.Model):
     LEVEL_CHOICES = (
@@ -56,11 +59,26 @@ class Course(SeoModel, models.Model):
         super(Course, self).save(*args, **kwargs)
 
 
+class Section(SeoModel, models.Model):
+    title = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=255, unique=True, editable=False)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='sections')
+    order = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(Section, self).save(*args, **kwargs)
+
+
 class Lesson(SeoModel, models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True, editable=False)
     content = models.TextField()
-    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='lessons')
+    section = models.ForeignKey(Section, on_delete=models.CASCADE, related_name='lessons')
     order = models.PositiveIntegerField(default=0)
     published = models.BooleanField(default=False)
 

@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <section class="py-5 bg-dark text-light">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <h1 class="display-4 fw-bold text-uppercase">Catalogue de Formations</h1>
+                    <p class="lead">ACADEMY221</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="dashboard" class="py-4">
+        <div class="container">
+            <div class="row">
+                {% for course in courses %}
+                <div class="col-md-6 mb-3">
+                    <div class="card" onclick="location.href='{% url 'course_detail' slug=course.slug %}'" style="cursor: pointer;">
+                        <div class="card-header">
+                            <h1 class="h3">{{ course.title }}</h1>
+                        </div>
+                        <div class="card-body">
+                            <p>{{ course.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
