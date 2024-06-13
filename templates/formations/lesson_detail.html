@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-
+{% load markdown_extras %}
 {% block content %}
 <section class="py-5 bg-dark text-light">
     <div class="container">
@@ -21,7 +21,7 @@
                         <h1 class="h3">{{ lesson.title }}</h1>
                     </div>
                     <div class="card-body">
-                        <p>{{ lesson.content }}</p>
+                        <p>{{ lesson.content | markdown | safe }}</p>
                     </div>
                 </div>
             </div>

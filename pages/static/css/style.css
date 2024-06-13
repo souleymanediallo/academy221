@@ -5,3 +5,63 @@
     align-items: center;
     justify-content: center;
 }
+
+/* CSS pour styliser les blocs de code */
+.codehilite {
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Styliser le texte normal */
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Coloration syntaxique de base */
+.codehilite .hll { background-color: #ffffcc }
+.codehilite  { background: #f8f8f8; margin-bottom:20px; }
+.codehilite .c { color: #408080; font-style: italic } /* Commentaire */
+.codehilite .k { color: #008000; font-weight: bold } /* Mot-clé */
+.codehilite .o { color: #666666 } /* Opérateur */
+.codehilite .cm { color: #408080; font-style: italic } /* Commentaire multiligne */
+.codehilite .cp { color: #BC7A00 } /* Directive préprocesseur */
+.codehilite .c1 { color: #408080; font-style: italic } /* Commentaire une ligne */
+.codehilite .cs { color: #408080; font-style: italic } /* Commentaire avec spécial */
+.codehilite .gd { background-color: #ffdddd; border: 1px solid #ff0000 } /* Suppression */
+.codehilite .ge { font-style: italic }
+.codehilite .gr { background-color: #ffdddd; border: 1px solid #ff0000 } /* Rejet */
+.codehilite .gh { color: #000080; font-weight: bold } /* Entête */
+.codehilite .gi { background-color: #ddffdd; border: 1px solid #00ff00 } /* Insertion */
+.codehilite .go { color: #888888 }
+.codehilite .gp { color: #000080; font-weight: bold } /* Préfixe */
+.codehilite .gs { font-weight: bold }
+.codehilite .gu { color: #800080; font-weight: bold } /* Unité */
+.codehilite .gt { color: #0044DD }
+.codehilite .kc { color: #008000; font-weight: bold } /* Mot-clé de contrôle */
+.codehilite .kd { color: #008000; font-weight: bold } /* Mot-clé de déclaration */
+.codehilite .kn { color: #008000; font-weight: bold } /* Mot-clé de nomspac */
+.codehilite .kp { color: #008000 }
+.codehilite .kr { color: #008000; font-weight: bold } /* Mot-clé de réservation */
+.codehilite .kt { color: #B00040 } /* Type de données */
+.codehilite .m { color: #666666 } /* Littéral numérique */
+.codehilite .s { color: #BA2121 } /* Chaîne */
+.codehilite .na { color: #7D9029 } /* Nom d'attribut */
+.codehilite .nb { color: #008000 } /* Mot-clé intégré */
+.codehilite .nc { color: #0000FF; font-weight: bold } /* Nom de classe */
+.codehilite .no { color: #880000 } /* Nom constant */
+.codehilite .nd { color: #AA22FF } /* Décorateur */
+.codehilite .ni { color: #999999; font-weight: bold } /* Entité intégrée */
+.codehilite .ne { color: #D2413A; font-weight: bold } /* Exception */
+.codehilite .nf { color: #0000FF } /* Nom de fonction
+.codehilite .nl { color: #A0A000 } /* Nom de variable */
+.codehilite .nn { color: #0000FF; font-weight: bold } /* Nom numérique */
+.codehilite .nt { color: #008000; font-weight: bold } /* Type */
+.codehilite .nv { color: #19177C } /* Nom de variable */
+.codehilite .ow { color: #AA22FF; font-weight: bold } /* Mot-clé d'opération */
+.codehilite .w { color: #bbbbbb }
+.codehilite .mf { color: #666666 } /* Fonction magique */
+
