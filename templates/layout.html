@@ -12,35 +12,27 @@
 <!-- Favicon icon-->
 <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon/favicon.png' %}" />
 
-<!-- darkmode js -->
-
 <!-- Libs CSS -->
-<link href="{% static 'fonts/feather/feather.css' %}" rel="stylesheet" />
-<link href="{% static 'libs/bootstrap-icons/font/bootstrap-icons.min.css' %}" rel="stylesheet" />
-<link href="{% static 'libs/simplebar/dist/simplebar.min.css' %}" rel="stylesheet" />
+<link type="text/css" href="{% static 'fonts/feather/feather.css' %}" rel="stylesheet" />
+<link type="text/css" href="{% static 'libs/bootstrap-icons/font/bootstrap-icons.min.css' %}" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <!-- Theme CSS -->
-<link rel="stylesheet" href="{% static 'css/theme.min.css' %}">
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/theme.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link rel="canonical" href="https://academmy221/index.html" />
-    <link href="{% static 'libs/tiny-slider/dist/tiny-slider.css' %}" rel="stylesheet" />
     <title>ACADEMY221</title>
   </head>
   <body>
+
     {% include 'partials/header.html' %}
     {% block content %} {% endblock %}
      <!-- Libs JS -->
-<script src="{% static 'libs/popper/core/dist/umd/popper.min.js' %}"></script>
-<script src="{% static 'libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
-<script src="{% static 'libs/simplebar/dist/simplebar.min.js' %}"></script>
+    <script src="{% static 'libs/popper/core/dist/umd/popper.min.js' %}"></script>
+    <script src="{% static 'libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
 
-<!-- Theme JS -->
-<script src="{% static 'js/theme.min.js' %}"></script>
+    <!-- Theme JS -->
+    <script src="{% static 'js/theme.min.js' %}"></script>
 
-    <script src="{% static 'libs/tiny-slider/dist/min/tiny-slider.js' %}"></script>
-    <script src="{% static 'libs/tippy.js/dist/tippy-bundle.umd.min.js' %}"></script>
-    <script src="{% static 'js/vendors/tnsSlider.js' %}"></script>
-    <script src="{% static 'js/vendors/tooltip.js' %}"></script>
   </body>
 </html>

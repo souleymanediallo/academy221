@@ -43,11 +43,11 @@
                              aria-labelledby="heading{{ section.id }}"
                              data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <ul>
+                                <ol>
                                     {% for lesson in section.lessons.all %}
                                     <li><a href="{% url 'lesson_detail' course_slug=lesson.section.course.slug slug=lesson.slug %}">{{ lesson.title }}</a></li>
                                     {% endfor %}
-                                </ul>
+                                </ol>
                             </div>
                         </div>
                     </div>
