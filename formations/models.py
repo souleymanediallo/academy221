@@ -42,7 +42,7 @@ class Course(SeoModel, models.Model):
         ('advanced', 'Avancé'),
     )
     title = models.CharField(max_length=255)
-    slug = models.SlugField(max_length=255, unique=True, editable=False)
+    slug = models.SlugField(max_length=255, unique=True, editable=True)
     description = models.TextField(blank=True, default="")
     level = models.CharField(max_length=12, choices=LEVEL_CHOICES, default='beginner')
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name='courses')
@@ -61,7 +61,7 @@ class Course(SeoModel, models.Model):
 
 class Section(SeoModel, models.Model):
     title = models.CharField(max_length=255)
-    slug = models.SlugField(max_length=255, unique=True, editable=False)
+    slug = models.SlugField(max_length=255, unique=True, editable=True)
     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='sections')
     order = models.PositiveIntegerField(default=0)
 
@@ -76,7 +76,7 @@ class Section(SeoModel, models.Model):
 
 class Lesson(SeoModel, models.Model):
     title = models.CharField(max_length=255)
-    slug = models.SlugField(max_length=255, unique=True, editable=False)
+    slug = models.SlugField(max_length=255, unique=True, editable=True)
     content = models.TextField()
     section = models.ForeignKey(Section, on_delete=models.CASCADE, related_name='lessons')
     order = models.PositiveIntegerField(default=0)

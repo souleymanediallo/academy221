@@ -15,7 +15,7 @@
 <section id="dashboard" class="py-4">
     <div class="container-fluid">
         <div class="row">
-            <div class="col md-9">
+            <div class="col md-8">
                 <div class="card">
                     <div class="card-header">
                         <h1 class="h3">{{ course.title }}</h1>
@@ -25,7 +25,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <!--- start -->
                 <div class="accordion" id="accordionExample">
                     {% for section in sections %}
@@ -35,7 +35,7 @@
                                     type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ section.id }}"
                                     aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
                                     aria-controls="collapse{{ section.id }}">
-                                {{ section.title }}
+                                Section {{ forloop.counter }} : {{ section.title }}
                             </button>
                         </h2>
                         <div id="collapse{{ section.id }}"
@@ -43,11 +43,11 @@
                              aria-labelledby="heading{{ section.id }}"
                              data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <ul>
+                                <ol>
                                     {% for lesson in section.lessons.all %}
                                     <li><a href="{% url 'lesson_detail' course_slug=lesson.section.course.slug slug=lesson.slug %}">{{ lesson.title }}</a></li>
                                     {% endfor %}
-                                </ul>
+                                </ol>
                             </div>
                         </div>
                     </div>
