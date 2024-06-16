@@ -1,6 +1,9 @@
 from django.shortcuts import render
+from formations.models import Course
 
 
 # Create your views here.
 def home(request):
-    return render(request, "pages/index.html")
+    courses = Course.objects.all()
+    context = {"courses": courses}
+    return render(request, "pages/index.html", context)

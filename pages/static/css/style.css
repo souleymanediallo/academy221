@@ -20,6 +20,44 @@ p {
     line-height: 1.6;
     color: #333;
 }
+.bg-primary {
+    --gk-bg-opacity: 1;
+    background-color: #08268a !important;
+}
+
+.btn-link {
+    color: #08268a !important;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+a {
+    color: #08268a !important;
+    text-decoration: none;
+}
+
+.text-primary {
+    --gk-text-opacity: 1;
+    color: #08268a !important;
+}
+
+.btn-primary {
+    --gk-btn-color: #fff;
+    --gk-btn-bg: #08268a !important;
+    --gk-btn-border-color: #08268a !important;
+    --gk-btn-hover-color: #fff;
+    --gk-btn-hover-bg: #6343d8;
+    --gk-btn-hover-border-color: #5e3fcb;
+    --gk-btn-focus-shadow-rgb: 138, 105, 254;
+    --gk-btn-active-color: #fff;
+    --gk-btn-active-bg: #5e3fcb;
+    --gk-btn-active-border-color: #583bbf;
+    --gk-btn-active-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+    --gk-btn-disabled-color: #fff;
+    --gk-btn-disabled-bg: #08268a !important;
+    --gk-btn-disabled-border-color: #08268a !important;
+}
+
 
 /* Coloration syntaxique de base */
 .codehilite .hll { background-color: #ffffcc }

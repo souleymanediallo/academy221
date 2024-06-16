@@ -1,10 +1,155 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="container pt-5">
-  <h1>Welcome to Academy221</h1>
-  <p class="lead">This
-    <a href="https://academy221.com">Academy221</a> is a platform for learning and sharing knowledge.</p>
+ <section class=" py-10 bg-auto bg-light hero-graphics">
+<div class="container">
+  <!-- Hero Section -->
+  <div class="row justify-content-center py-5">
+    <div class="col-xl-7 col-lg-7 col-md-12 pt-5">
+      <div class="py-8 py-lg-0 text-center">
+        <h1 class="display-2 fw-bold mb-3 text-primary">
+          <span class="px-3 px-md-0 text-primary">Apprenez et Progressez</span> Avec<span class="text-dark px-3 px-md-0 text-uppercase"> Academy221</span>
+        </h1>
+        <p class="mb-6 h2 text-dark">
+         Une plateforme dédiée à l'apprentissage avec une variété de cours en ligne conçus pour rendre l'éducation accessible à tous.
+        </p>
+        <a href="../pricing.html" class="btn btn-primary me-2 text-light">Créer votre compte</a>
+        <a href="../sign-up.html" class="btn btn-outline-primary">Voir les formations</a>
+        <div class="mt-8 mb-0">
+          <ul class="list-inline">
+            <li class="list-inline-item text-dark fw-semibold lh-1 fs-4 me-3   mb-2 mb-md-0"><span
+              class="icon-shape icon-xs rounded-circle bg-light-success text-center me-2"><svg
+                xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-check text-success"
+                viewBox="0 0 16 16">
+                <path
+                  d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+              </svg></span><span class="align-middle">Cours Gratuits</span></li>
+          <li class="list-inline-item text-dark fw-semibold lh-1 fs-4  me-3    mb-2 mb-md-0"><span
+              class="icon-shape icon-xs rounded-circle bg-light-success text-center me-2"><svg
+              xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-check text-success"
+              viewBox="0 0 16 16">
+              <path
+                d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+            </svg></span><span class="align-middle">Niveau Débutant à Avancé</span></li>
+          <li class="list-inline-item text-dark fw-semibold lh-1 fs-4"><span
+              class="icon-shape icon-xs rounded-circle bg-light-success text-center me-2"><svg
+              xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-check text-success"
+              viewBox="0 0 16 16">
+              <path
+                d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+            </svg></span><span class="align-middle">Accessible à Tous</span>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="display-2 fw-bold py-5">Nouvelles formations</h2>
+    <div class="row">
+        {% for course in courses %}
+        <div class="col-lg-6 col-md-12 col-12">
+            <!-- Features -->
+            <div class="card mb-4" onclick="location.href='{% url 'course_detail' slug=course.slug %}'" style="cursor: pointer;">
+                <!-- Card body -->
+                <div class="card-body p-6">
+                    <div class="d-md-flex mb-4">
+                        <!-- Content -->
+                        <div class="ms-md-4">
+                            <h2 class="fw-bold mb-1">
+                                {{ course.title }}
+                            </h2>
+                            <p class="text-uppercase fs-6 fw-semibold mb-0">
+                                <span class="ms-3-"> Catégorie : {{ course.category }}</span>
+                                <span class="ms-3">Niveau : {{ course.get_level_display }}</span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="mb-4 fs-4">{{ course.description|truncatechars:120 }}</p>
+
+                    <a href="#" class="btn-link" data-bs-toggle="modal" data-bs-target="#courseModal">
+                        Voir le contenu du cours <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+  </div>
+</section>
+<div class="container py-5">
+  <h2 class="display-2 fw-bold">Booster votre carrière</h2>
+  <p class="lead">Découvrez des formations complètes, de niveau débutant à avancé, couvrant des sujets variés comme Python, Django, HTML, CSS, SQL, et Bootstrap. Profitez de l'apprentissage en ligne pour devenir développeur et booster votre carrière.
+</div>
+
+<section class="py-5">
+   <div class="container">
+
+<div class="row">
+  <div class="col-md-4 col-12">
+    <!-- card -->
+    <div class="card mb-4 mb-lg-0">
+      <!-- card body -->
+      <div class="card-body p-5">
+        <!-- icon -->
+        <div class="mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+            fill="currentColor" class="bi bi-mortarboard text-primary" viewBox="0 0 16 16">
+            <path
+              d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5ZM8 8.46 1.758 5.965 8 3.052l6.242 2.913L8 8.46Z" />
+            <path
+              d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Zm-.068 1.873.22-.748 3.496 1.311a.5.5 0 0 0 .352 0l3.496-1.311.22.748L8 12.46l-3.892-1.556Z" />
+          </svg></div>
+        <h3 class="mb-2">Rendre l'éducation accessible</h3>
+        <p class="mb-0">Nos cours sont conçus pour être accessibles à tous, peu importe votre niveau de départ.
+          Apprenez à votre propre rythme avec des ressources complètes et bien structurées.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-12">
+    <!-- card -->
+    <div class="card mb-4 mb-lg-0">
+      <!-- card body -->
+      <div class="card-body p-5">
+        <!-- icon -->
+        <div class="mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+            class="bi bi-people-fill text-primary" viewBox="0 0 16 16">
+            <path
+              d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+          </svg>
+        </div>
+        <h3 class="mb-2">Apprendre et progressez</h3>
+        <p class="mb-0">
+          Progressez dans votre carrière avec des compétences nouvelles et améliorées.
+          Nos cours couvrent des domaines essentiels du développement informatique.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-12">
+    <!-- card -->
+    <div class="card mb-4 mb-lg-0">
+      <!-- card body -->
+      <div class="card-body p-5">
+        <!-- icon -->
+        <div class="mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+            fill="currentColor" class="bi bi-graph-up-arrow text-primary" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M0 0h1v15h15v1H0V0Zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5Z" />
+          </svg></div>
+        <h3 class="mb-2">Devenir développeur</h3>
+        <p class="mb-0">Accédez à des formations en développement web sans avoir besoin d'expériences.
+          Formation permettant une compréhension approfondie des concepts techniques.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
 
 {% endblock %}
